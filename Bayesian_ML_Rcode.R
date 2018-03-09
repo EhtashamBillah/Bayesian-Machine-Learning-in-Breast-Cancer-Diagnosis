@@ -18,7 +18,7 @@ require(Amelia)     # for finding missing value
 require(e1071)      # for measuring skewness
 require(doSNOW)     # for parallel computation
 require(ROCR)       # for ROC curve
-require(glmnet)     # for variable selection with lasso
+require(glmnet)     # for variable selection with LASSO
 
 
 #Loading the Dataset
