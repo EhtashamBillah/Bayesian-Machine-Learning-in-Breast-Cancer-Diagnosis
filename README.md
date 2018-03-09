@@ -8,7 +8,7 @@ The aim of this project is to apply Bayesian Machine Learning Algorithm to predi
 -2.Raw Data
 
 ##  Variables Selection:
--1.Least Absolute Shringake and Selection Operator (LASSO) 
+-1.Least Absolute Shrinikage and Selection Operator (LASSO) 
 
 -2.Recursive Feature Elimination (RFE)
 
