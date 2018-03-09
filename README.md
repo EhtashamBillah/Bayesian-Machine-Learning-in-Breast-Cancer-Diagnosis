@@ -29,10 +29,11 @@ https://archive.ics.uci.edu/ml/datasets/Breast+Cancer+Wisconsin+%28Diagnostic%29
 
 ---
 
-###Contributors
+### Contributors
 - Mohammad Ehtasham Billah <mymun.stat@gmail.com>
 
-###
-Licence & Copyright
+---
+
+### Licence & Copyright
 © Mohammad Ehtasham Billah , Örebro University, Sweden
 
