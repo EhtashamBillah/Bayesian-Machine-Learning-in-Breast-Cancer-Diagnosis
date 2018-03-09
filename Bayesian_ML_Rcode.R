@@ -21,13 +21,15 @@ require(ROCR)       # for ROC curve
 require(glmnet)     # for variable selection with lasso
 
 
+#Loading the Dataset
 dataset<- read.csv("data.csv")
 dataset <- dataset[,-c(1,33)]
 
 
 #########################################################
 ## Exploratory Data Analysis (EDA)
-#######################################################
+#########################################################
+
 # 1.Finding missing value
 missmap(dataset,
         col=c("#cc6600","#aae4f5"),
@@ -50,7 +52,6 @@ write.csv(outliers, file= "outliers.csv")
 
 
 # An example of how spatial sign works
-
 two_predictors<- as.data.frame(scale(final_dataset[,c("texture_worst","radius_worst")]))
 xyplot(texture_worst ~ radius_worst,
        data = two_predictors,
@@ -65,7 +66,7 @@ xyplot(texture_worst ~ radius_worst,
        auto.key = list(columns = 2)) 
 
 
-# Distribution of y
+# Distribution of Dependent Variable Diagnosis
 prop.table(table(dataset$diagnosis))
 
 
@@ -132,8 +133,6 @@ prop.table(table(test_set_rfe$diagnosis))
 ###########################################
 # Variable selection using LASSO
 ###########################################
-
-
 fit_lasso <- glmnet(x=as.matrix(dataset[,-1]), 
                     y=factor(dataset$diagnosis),
                     family="binomial",
@@ -163,7 +162,6 @@ dataset_lasso <- dataset[,c("diagnosis",optimum_subset)]
 ###########################################
 # Splitting the dataset
 ###########################################
-
 # Dataset with Variables Seleted By LASSO
 
 split_lasso<- createDataPartition(y=dataset_lasso$diagnosis,p=0.70,list=FALSE)
@@ -175,7 +173,7 @@ prop.table(table(test_set_lasso$diagnosis))
 
 
 ############################################################
-# Bayesian Machine Learing with Variables selected by RFE
+# Bayesian Machine Learning with Variables selected by RFE
 ###########################################################
 
 # Setting up control
@@ -217,7 +215,6 @@ model_bayes_cross_rfe_guassian <- train(form=diagnosis~.,
                                         trControl=control_rfe,
                                         tuneGrid=grid_rfe_gaussian)
 
-
 importance_rfe_gaussian <- varImp(model_bayes_cross_rfe_guassian)
 plot(importance_rfe_gaussian,col="#7add52",main="Kernel Denasity (RFE)")
 
@@ -246,8 +243,8 @@ cm_rfe_gaussian<- confusionMatrix(data=y_hat_rfe_gaussian,
 ################################################################
 # AUROC (Area under receiver operating charactaristics) CURVE
 #################################################################
-# a) when normal density was used
 
+# a) when normal density was used
 pred_rfe_normal <- prediction(predictions = as.numeric(y_hat_rfe_normal), 
                               labels=test_set_rfe$diagnosis)
 perform_rfe_normal <- performance(pred_rfe_normal,
@@ -270,7 +267,6 @@ legend(.7,.3,auc_rfe_normal,title="AUROC",cex=0.6,
 
 
 # b) when kernel density was used
-
 pred_rfe_gaussian <- prediction(predictions = as.numeric(y_hat_rfe_gaussian), 
                                 labels=as.numeric(test_set_rfe$diagnosis))
 perform_rfe_gaussian <- performance(pred_rfe_gaussian,
@@ -297,10 +293,9 @@ legend(.7,.3,auc_rfe_gaussian,title="AUROC",cex=0.6,
 ## Bayesian Machine learning with variableS selected by LASSO
 ###############################################################
 
-###########################################
-# Checking multicollinearity
-###########################################
-# Much better result !!!
+################################################
+# Finding multicollinearity after applying LASSO
+################################################
 correlation_lasso<- cor(dataset_lasso[,-1])
 corr_plot_lasso <- corrplot(correlation_lasso,
                             method="color",
