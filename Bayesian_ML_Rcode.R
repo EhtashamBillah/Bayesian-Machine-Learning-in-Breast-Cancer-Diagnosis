@@ -212,7 +212,7 @@ model_bayes_cross_rfe_guassian <- train(form=diagnosis~.,
                                         method="nb",
                                         preProcess=c("YeoJohnson","center","scale","spatialSign"), 
                                         metric="ROC",
-                                        trControl=control_rfe,
+                                        trControl=control,
                                         tuneGrid=grid_rfe_gaussian)
 
 importance_rfe_gaussian <- varImp(model_bayes_cross_rfe_guassian)
@@ -341,9 +341,8 @@ model_bayes_cross_lasso_guassian <- train(form=diagnosis~.,
                                           method="nb",
                                           preProcess=c("YeoJohnson","center","scale","spatialSign"),
                                           metric="ROC",
-                                          trControl=control_lasso,
+                                          trControl=control,
                                           tuneGrid=grid_lasso_gaussian)
-
 
 importance_lasso_gaussian <- varImp(model_bayes_cross_lasso_guassian)
 plot(importance_lasso_gaussian,col="#910085",main="Kernel Density (LASSO)")
@@ -440,9 +439,8 @@ model_bayes_cross_rfe_normal_raw <- train(form=diagnosis~.,
                                           data=training_set_rfe,
                                           method="nb",
                                           metric="ROC",
-                                          trControl=control_rfe,
+                                          trControl=control,
                                           tunegrid=grid_rfe_normal)
-
 
 importance_rfe_normal_raw <- varImp(model_bayes_cross_rfe_normal_raw)
 plot(importance_rfe_normal_raw,col="#4f1283",main="Normal Density (RFE)")
