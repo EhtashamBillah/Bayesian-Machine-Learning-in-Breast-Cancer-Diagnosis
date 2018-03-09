@@ -51,7 +51,7 @@ j) fractal dimension ("coastline approximation" - 1)
 For each of these 10 different measurements information about mean, standard deviation and the worst condition for every individual was assessed and stored as independent variables. Note that, the size of cell nuclei is associated with the breast cancer-causing genes (BRCA1, BRCA2, ATM, BRIP1, CDH1, CHEK2 and several others).
 
 Variable 1 indicates the ID number of individuals. Note that, in fitting the Bayesian Machine Learning model, variable #02 i.e. Diagnosis was treated as the dependent variable which contains two classes “B” and “M”. ”B” stands for Benign and it indicates that the tumor is not cancerous. These types of tumor do not harm the surrounding tissues. On the other hand, ”M” stands for Malignant tumor and it is cancerous. The malignant tumor grows uncontrollably and it badly harms the surrounding tissues.
-This dataset was collected from University of California, Irvine (UCI) Machine Learning Repository. Further details of the dataset and list of scholarly papers that this dataset can be found at the following link:
+This dataset was collected from University of California, Irvine (UCI) Machine Learning Repository. Further details of the dataset and list of scholarly papers that used this dataset can be found at the following link:
 https://archive.ics.uci.edu/ml/datasets/Breast+Cancer+Wisconsin+%28Diagnostic%29
 
 ---
