@@ -4,8 +4,8 @@ getDoParWorkers()
 getDoParRegistered()
 getDoParName()
 getDoParVersion()
-cl <- makeCluster(spec=2, type="SOCK")
-registerDoSNOW(cl) 
+cl <- makeCluster(spec=2, type="SOCK")   # Setting up clusters for Parallel Computing
+registerDoSNOW(cl)                       # Registering clusters
 stopCluster(cl)
 
 #REQUIRED PACKAGES
