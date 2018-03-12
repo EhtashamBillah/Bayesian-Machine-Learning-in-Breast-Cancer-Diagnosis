@@ -6,7 +6,7 @@ getDoParName()
 getDoParVersion()
 cl <- makeCluster(spec=2, type="SOCK")   # Setting up clusters for Parallel Computing
 registerDoSNOW(cl)                       # Registering clusters
-stopCluster(cl)
+stopCluster(cl)                          # To stop Parallel Computing
 
 #REQUIRED PACKAGES
 require(lattice)    # for visualization
