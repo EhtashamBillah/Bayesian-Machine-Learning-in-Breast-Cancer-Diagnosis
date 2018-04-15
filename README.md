@@ -2,7 +2,7 @@
 
 The aim of this project is to apply Bayesian Machine Learning Algorithm to predict the diagnosis condition of the patients based on the sample collected from them.Here different measurements of the cell nuclei are the information that we provide to the machine to gain experience during training.
 
-## Model was Fitted on:
+## Models were Fitted on:
 -1.Transformed Data (Centering,Scaling,Yeo-Johnson Transformation,Spatial Sign Transformation)
 
 -2.Raw Data
