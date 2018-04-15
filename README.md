@@ -15,7 +15,7 @@ The aim of this project is to apply Bayesian Machine Learning Algorithm to predi
 ## Density Estimation:
 -1. Probability Density of Normal Distribution
 
--2. Non-Parametric Guassian Kernel Density 
+-2. Non-Parametric Gaussian Kernel Density 
 
 ### Thus, in total eight Bayesian Machine Learning Models were fitted. The model performance will be discussed in details in a separate file.
 
