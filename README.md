@@ -12,6 +12,9 @@ The aim of this project is to apply Bayesian Machine Learning Algorithm to predi
 
 -2.Recursive Feature Elimination (RFE)
 
+##  Prior Probabilities:
+Proportions of classes were considered as prior Probabilities
+
 ## Density Estimation:
 -1. Probability Density of Normal Distribution
 
