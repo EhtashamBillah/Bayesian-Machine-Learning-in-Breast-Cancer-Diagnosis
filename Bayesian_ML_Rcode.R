@@ -95,7 +95,7 @@ nbrfe <- rfe(x=dataset[,-1],
              metric = "ROC",
              rfeControl = varctrl)
 
-nbrfe
+
 opt_var <- predictors(nbrfe) # gives the variables with optimum effect
 nbrfe$fit
 nbrfe$resample
